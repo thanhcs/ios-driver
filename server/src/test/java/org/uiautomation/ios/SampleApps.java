@@ -124,7 +124,7 @@ public class SampleApps {
   }
 
   public static IOSCapabilities intlMountainsCap(String lang) {
-    IOSCapabilities c = IOSCapabilities.iphone("InternationalMountains", "1.1");
+    IOSCapabilities c = IOSCapabilities.iphone("InternationalMountains", "1.3");
     c.setLanguage(lang);
     if (sdkVersion != null) {
       log.info("SET SDK to " + sdkVersion);

@@ -64,6 +64,7 @@ public class TimeoutTest extends BaseIOSDriverTest {
       long total = System.currentTimeMillis() - start;
       Assert.assertTrue(total > 2000);
     }
+//    Thread.sleep(SESSION_DELAY + 1000);
   }
 
   @Test
