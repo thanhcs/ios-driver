@@ -7,7 +7,22 @@
     </listeners>
 	<test name="unit tests" preserve-order="true">
 		<packages>
-			<package name="org.uiautomation.ios.*" />
+            <package name="org.uiautomation.ios" />
+            <package name="org.uiautomation.ios.application" />
+            <package name="org.uiautomation.ios.command" />
+
+            <!--
+            <package name="org.uiautomation.ios.e2e.abnormalSessionStop" />
+            <package name="org.uiautomation.ios.e2e.config" />
+            <package name="org.uiautomation.ios.e2e.hybrid" />
+            <package name="org.uiautomation.ios.e2e.intl" />
+            <package name="org.uiautomation.ios.e2e.nativegestures" />
+            -->
+
+            <package name="org.uiautomation.ios.e2e.uicatalogapp" />
+            <package name="org.uiautomation.ios.inspector" />
+            <package name="org.uiautomation.ios.server" />
+            <package name="org.uiautomation.ios.server.utils" />
 		</packages>
 	</test>
 	<!--<test name="config" preserve-order="true">-->
