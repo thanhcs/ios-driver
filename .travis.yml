@@ -5,8 +5,6 @@ before_script:
 - sudo dscl . append /Groups/_developer GroupMembership travis
 - java -version
 - export "JAVA_HOME=`/usr/libexec/java_home`"
-#- sudo python ./sim_access.py
-#- grep -A 10 system.privilege.taskport /etc/authorization
 - sudo mkdir /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/exiledSDKs 
 - sudo chmod -R a+rw /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/exiledSDKs
 - sudo chmod 666 /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator*.sdk/Applications/MobileSafari.app/Info.plist
