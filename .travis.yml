@@ -4,6 +4,7 @@ before_script:
 - sudo /usr/sbin/DevToolsSecurity --enable
 - sudo dscl . append /Groups/_developer GroupMembership travis
 - java -version
+- echo $JAVA_HOME
 #- sudo python ./sim_access.py
 #- grep -A 10 system.privilege.taskport /etc/authorization
 - sudo mkdir /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/exiledSDKs 
