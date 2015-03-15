@@ -72,10 +72,9 @@ public class AlertTest extends BaseIOSDriverTest {
   @Test(expectedExceptions = UnhandledAlertException.class)
   public void cannotInteractWithAppWhenAlertOpen() throws Exception {
     Criteria
-            c =
-            new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
+        c =
+        new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
     UIAElement el = driver.findElements(c).get(0);
-    // why there are two Simple? I see it read two "Simple"'s
     // opens an alert.
     el.tap();
     try {
@@ -90,10 +89,9 @@ public class AlertTest extends BaseIOSDriverTest {
   @Test
   public void canFindElementInAlertIfAlertOpened() throws Exception {
     Criteria
-            c =
-            new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
+        c =
+        new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
     UIAElement el = driver.findElements(c).get(0);
-    // again?
     // opens an alert.
     el.tap();
 
@@ -119,8 +117,8 @@ public class AlertTest extends BaseIOSDriverTest {
   public void canSeeAlertsAsWebElements() throws Exception {
     RemoteWebDriver d = (RemoteWebDriver) driver;
     Criteria
-            c =
-            new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
+        c =
+        new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
     UIAElement el = driver.findElements(c).get(0);
     try {
       d.findElement(By.className("UIAAlert"));
@@ -169,10 +167,10 @@ public class AlertTest extends BaseIOSDriverTest {
   @DataProvider(name = "allAlerts")
   public Object[][] createData1() {
     return new Object[][]{
-            {alertOK},
-            {alertOKCancel},
-            {alert3Buttons},
-            {alertEntry},
+        {alertOK},
+        {alertOKCancel},
+        {alert3Buttons},
+        {alertEntry},
     };
   }
 
@@ -215,9 +213,9 @@ public class AlertTest extends BaseIOSDriverTest {
   @DataProvider(name = "non-input")
   public Object[][] createData2() {
     return new Object[][]{
-            {alertOK},
-            {alertOKCancel},
-            {alert3Buttons},
+        {alertOK},
+        {alertOKCancel},
+        {alert3Buttons},
     };
   }
 
@@ -266,8 +264,8 @@ public class AlertTest extends BaseIOSDriverTest {
   public void checkUIAlertView() throws Exception {
 
     Criteria
-            c =
-            new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
+        c =
+        new AndCriteria(new TypeCriteria(UIAStaticText.class), new NameCriteria("Simple"));
     UIAElement el = driver.findElements(c).get(0);
     // opens an alert.
     el.tap();
