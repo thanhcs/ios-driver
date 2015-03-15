@@ -203,7 +203,6 @@ public class SimulatorSettings {
     uuidsMap.loadData();
     String uuid = uuidsMap.getUUID(exactSdkVersion, deviceName);
     if (uuid == null) {
-//      System.err.println("Unable to get UUID for device " + deviceName + " with SDK " + exactSdkVersion);
       throw new NotFoundException("Couldn't find " + exactSdkVersion + deviceName + " in your system");
     }
     int countingTries = 0;

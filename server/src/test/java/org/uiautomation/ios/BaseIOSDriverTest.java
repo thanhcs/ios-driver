@@ -35,7 +35,6 @@ public abstract class BaseIOSDriverTest {
 
   private IOSServer server;
   private IOSServerConfiguration config;
-  protected static final int SESSION_DELAY = 3000;
 
   @BeforeClass
   public final void beforeClass() throws Exception {
@@ -52,7 +51,6 @@ public abstract class BaseIOSDriverTest {
   public final void afterClass() throws Exception {
     stopDriver();
     stopServer();
-//    Thread.sleep(SESSION_DELAY); //wait for the simulator shutting down
   }
 
   private void startServer() throws Exception {
