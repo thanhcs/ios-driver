@@ -203,7 +203,7 @@ public class SimulatorSettings {
     uuidsMap.loadData();
     String uuid = uuidsMap.getUUID(exactSdkVersion, deviceName);
     if (uuid == null) {
-      throw new NotFoundException("Couldn't find " + exactSdkVersion + deviceName + " in your system");
+      throw new NotFoundException("Couldn't find UUID for device " + deviceName + " with SDK " + exactSdkVersion);
     }
     int countingTries = 0;
     String state = uuidsMap.getState(exactSdkVersion, deviceName);
@@ -218,7 +218,8 @@ public class SimulatorSettings {
       ++countingTries;
     }
     if (state.equals("Shutting down"))
-      throw new NotActiveException(exactSdkVersion + deviceName + " is not available to use. Current state:" + state);
+      throw new NotActiveException("UUID for device " + deviceName + " with SDK " + exactSdkVersion
+              + " is not " + "available to use. " + "Current state:" + state);
     return uuid;
   }
 
