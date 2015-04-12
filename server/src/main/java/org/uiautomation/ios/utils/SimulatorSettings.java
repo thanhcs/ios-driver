@@ -48,6 +48,9 @@ public class SimulatorSettings {
 
   private static final int NUMBER_TRIES_GETTING_UUID = 3;
   private static final int SLEEP_TIME_BETWEEN_TRIES = 2000;
+  private static final int NUMBER_TRIES_ERASING_CONTENT = 3;
+  private static final int SLEEP_TIME_BETWEEN_RESET_TRIES = 2000;
+
 
   private final String exactSdkVersion;
   private final boolean is64bit;
@@ -280,20 +283,36 @@ public class SimulatorSettings {
         System.err.println("couldn't re-create: " + contentAndSettingsFolder);
       }
     } else {
-      // Starting with Xcode 6 and later, we can use simctl to do the hard work for us.
-      // If it fails, we have to turn the device off first.
-      if (!eraseSimulator()) {
-        log.log(Level.WARNING, "Reset content and settings failed, " +
-            "possibly device is in booted state, shutdown device = " + deviceUUID);
-        List<String> simctlArgs = new ArrayList<>();
-        simctlArgs = Arrays.asList("xcrun", "simctl", "shutdown", deviceUUID);
-        Command simctlCmd = new Command(simctlArgs, true);
+      if (!eraseSimulator()) tryingToResetDevice();
+    }
+  }
 
-        // Run command 'xcrun simctl shutdown <uuid>'
-        simctlCmd.executeAndWait(false);
-
-        // Retry
-        eraseSimulator();
+  private void tryingToResetDevice() {
+    int countingTries = 0;
+    boolean successfulReset = false;
+    while (!successfulReset && countingTries < NUMBER_TRIES_ERASING_CONTENT) {
+      log.log(Level.INFO, "Reset content and setting failed on this device: " + deviceUUID);
+      log.log(Level.INFO, "Wait " + SLEEP_TIME_BETWEEN_RESET_TRIES + " milliseconds.");
+      try {
+        Thread.sleep(SLEEP_TIME_BETWEEN_RESET_TRIES);
+      } catch (InterruptedException e) {
+      }
+      successfulReset = eraseSimulator();
+      ++countingTries;
+    }
+    if (!successfulReset) {
+      int totalWaitingTime = SLEEP_TIME_BETWEEN_RESET_TRIES * NUMBER_TRIES_ERASING_CONTENT;
+      log.log(Level.WARNING, "Reset content and settings failed. Total waiting time: "
+              + totalWaitingTime
+              + ". Now try to shutdown device: " + deviceUUID);
+      List<String> simctlArgs = new ArrayList<>();
+      simctlArgs = Arrays.asList("xcrun", "simctl", "shutdown", deviceUUID);
+      Command simctlCmd = new Command(simctlArgs, true);
+      simctlCmd.executeAndWait(true);
+      successfulReset = eraseSimulator();
+      if (!successfulReset) {
+        log.warning("Reset content and setting still failed after shutting down the device: " + deviceUUID);
+        throw new WebDriverException("Execution Failed. Total waiting time: " + totalWaitingTime);
       }
     }
   }
@@ -307,7 +326,7 @@ public class SimulatorSettings {
     simctlArgs.add("simctl");
     simctlArgs.add("erase");
     simctlArgs.add(deviceUUID);
-    Command simctlCmd = new Command(simctlArgs, true);
+    Command simctlCmd = new Command(simctlArgs, false);
 
     // if the device is still in booted state erase returns with error code 146
     int exitCode = simctlCmd.executeAndWait(true);
