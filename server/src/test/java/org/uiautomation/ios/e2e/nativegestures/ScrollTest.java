@@ -28,7 +28,7 @@ import org.uiautomation.ios.UIAModels.predicate.*;
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver;
 import org.uiautomation.ios.client.uiamodels.impl.RemoteUIAScrollView;
 
-
+@Test(singleThreaded = true)
 public class ScrollTest extends BaseIOSDriverTest {
 
   private static final String verView1 = "Vertical View 1";

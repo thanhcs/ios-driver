@@ -24,6 +24,7 @@ import org.uiautomation.ios.SampleApps;
 import org.uiautomation.ios.client.uiamodels.impl.augmenter.IOSDriverAugmenter;
 import org.uiautomation.ios.client.uiamodels.impl.augmenter.IOSTouchScreen;
 
+@Test(singleThreaded = true)
 public class PinchTest extends BaseIOSDriverTest {
 
   @BeforeClass

@@ -21,11 +21,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.message.BasicHttpEntityEnclosingRequest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.uiautomation.ios.IOSCapabilities;
-import org.uiautomation.ios.IOSServer;
-import org.uiautomation.ios.IOSServerConfiguration;
-import org.uiautomation.ios.IOSServerManager;
-import org.uiautomation.ios.ServerSideSession;
+import org.uiautomation.ios.*;
 import org.uiautomation.ios.application.MobileSafariLocator;
 import org.uiautomation.ios.command.configuration.Configuration;
 import org.uiautomation.ios.communication.HttpClientFactory;
@@ -33,7 +29,6 @@ import org.uiautomation.ios.instruments.InstrumentsFailedToStartException;
 import org.uiautomation.ios.utils.IOSVersion;
 
 import java.net.URL;
-import java.util.Set;
 
 public class ServerCanStopTest {
 

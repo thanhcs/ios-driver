@@ -29,7 +29,7 @@ import org.uiautomation.ios.UIAModels.predicate.Criteria;
 import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 
-
+@Test(singleThreaded = true)
 public class UIAKeyboardTest extends BaseIOSDriverTest {
 
   private UIATextView textview;
@@ -93,8 +93,9 @@ public class UIAKeyboardTest extends BaseIOSDriverTest {
   }
 
   @Test
-  public void slash() {
+  public void slash() throws InterruptedException {
     String v = "A\\B ";
+    Thread.sleep(200);
     textview.clear();
     textview.sendKeys(v);
     Assert.assertEquals(textview.getValue(), v);

@@ -33,6 +33,7 @@ import org.uiautomation.ios.utils.XPath2Engine;
 import java.util.List;
 import java.util.Map;
 
+@Test(singleThreaded = true)
 public class XpathTreeFinderTest {
 
   private final

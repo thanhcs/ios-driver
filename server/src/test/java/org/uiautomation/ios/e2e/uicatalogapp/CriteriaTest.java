@@ -31,6 +31,7 @@ import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.PropertyEqualCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 
+@Test(singleThreaded = true)
 public class CriteriaTest extends BaseIOSDriverTest {
 
   @BeforeClass

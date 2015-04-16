@@ -31,6 +31,7 @@ import java.util.*;
 
 import static org.testng.Assert.*;
 
+@Test(singleThreaded = true)
 public class ExecuteNativeScriptsTest extends BaseIOSDriverTest {
 
   @BeforeClass

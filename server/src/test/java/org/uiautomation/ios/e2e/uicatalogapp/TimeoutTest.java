@@ -31,6 +31,7 @@ import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Test(singleThreaded = true)
 public class TimeoutTest extends BaseIOSDriverTest {
     
   @AfterMethod(alwaysRun = true)

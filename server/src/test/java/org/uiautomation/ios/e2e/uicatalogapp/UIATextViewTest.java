@@ -29,6 +29,7 @@ import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 import org.uiautomation.ios.communication.WebDriverLikeCommand;
 
+@Test(singleThreaded = true)
 public class UIATextViewTest extends BaseIOSDriverTest {
 
   private UIATextView textview;
@@ -63,18 +64,20 @@ public class UIATextViewTest extends BaseIOSDriverTest {
   }
 
   @Test
-  public void newLinesAndTabs() {
+  public void newLinesAndTabs() throws InterruptedException {
     driver.setConfiguration(WebDriverLikeCommand.SET_VALUE, "nativeEvents", false);
     String v = "ABC\nLine 2\t col3\nthanks,\nFrançois";
+    Thread.sleep(200); // wait for keyboard to appear
     textview.clear();
     textview.setValue(v);
     Assert.assertEquals(textview.getValue(), v);
   }
 
   @Test
-  public void slash() {
+  public void slash() throws InterruptedException {
     driver.setConfiguration(WebDriverLikeCommand.SET_VALUE, "nativeEvents", true);
     String v = "A\\B ";
+    Thread.sleep(200);
     textview.clear();
     textview.setValue(v);
     Assert.assertEquals(textview.getValue(), v);

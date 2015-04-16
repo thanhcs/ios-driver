@@ -32,6 +32,7 @@ import org.uiautomation.ios.UIAModels.predicate.MatchingStrategy;
 import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 
+@Test(singleThreaded = true)
 public class ActionSheetTest extends BaseIOSDriverTest {
 
   private static final String actionOk = "(//UIAStaticText[@name='Simple'])[1]";

@@ -21,6 +21,7 @@ import org.uiautomation.ios.IOSCapabilities;
 import org.uiautomation.ios.SampleApps;
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver;
 
+@Test(singleThreaded = true)
 public class ServerSerializeExceptionTest extends BaseIOSDriverTest {
 
   @Test(expectedExceptions = WebDriverException.class)

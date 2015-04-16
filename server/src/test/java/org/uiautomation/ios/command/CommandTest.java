@@ -18,6 +18,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.uiautomation.ios.utils.ClassicCommands;
 
+@Test(singleThreaded = true)
 public class CommandTest {
 
   @Test
