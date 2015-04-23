@@ -3,9 +3,9 @@ before_script:
 - sudo chmod -R 666 /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator*.sdk/Applications/MobileSafari.app/Info.plist
 - sudo /usr/sbin/DevToolsSecurity --enable
 - sudo dscl . append /Groups/_developer GroupMembership travis
-- java -version
 - export "JAVA_HOME=`/usr/libexec/java_home`"
-- grep -A 10 system.privilege.taskport /etc/authorization
+- java -version
+- grep -A 10 system.privilege.taskport /System/Library/Security/authorization.plist
 - sudo mkdir /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/exiledSDKs
 - sudo chmod -R a+rw /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/exiledSDKs
 - sudo chmod 666 /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator*.sdk/Applications/MobileSafari.app/Info.plist
