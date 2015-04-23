@@ -29,6 +29,7 @@ import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 import org.uiautomation.ios.communication.WebDriverLikeCommand;
 
+@Test(singleThreaded = true)
 public class UIATextViewTest extends BaseIOSDriverTest {
 
   private UIATextView textview;

@@ -36,6 +36,7 @@ import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 import java.io.File;
 import java.util.List;
 
+@Test(singleThreaded = true)
 public class RemoteUIAElementTest extends BaseIOSDriverTest {
 
   private String buttonsName = "Buttons";

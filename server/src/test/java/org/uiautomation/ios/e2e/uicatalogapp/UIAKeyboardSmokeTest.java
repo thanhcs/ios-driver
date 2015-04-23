@@ -29,6 +29,7 @@ import org.uiautomation.ios.UIAModels.predicate.Criteria;
 import org.uiautomation.ios.UIAModels.predicate.NameCriteria;
 import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 
+@Test(singleThreaded = true)
 public class UIAKeyboardSmokeTest extends BaseIOSDriverTest {
 
   private UIATextField textfield;

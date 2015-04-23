@@ -23,7 +23,7 @@ import org.uiautomation.ios.BaseIOSDriverTest;
 import org.uiautomation.ios.SampleApps;
 import org.uiautomation.ios.UIAModels.UIAElement;
 
-
+@Test(singleThreaded = true)
 public class LocationContextTest extends BaseIOSDriverTest {
 
   private UIAElement element;

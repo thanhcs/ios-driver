@@ -16,7 +16,6 @@ package org.uiautomation.ios.e2e.nativegestures;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.uiautomation.ios.BaseIOSDriverTest;
@@ -25,6 +24,7 @@ import org.uiautomation.ios.UIAModels.UIAPoint;
 import org.uiautomation.ios.client.uiamodels.impl.RemoteIOSDriver;
 import org.uiautomation.ios.client.uiamodels.impl.RemoteUIAWebView;
 
+@Test(singleThreaded = true)
 public class FlickTest extends BaseIOSDriverTest {
 
   @BeforeClass

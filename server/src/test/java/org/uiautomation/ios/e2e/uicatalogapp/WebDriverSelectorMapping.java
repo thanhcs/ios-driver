@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
 import org.uiautomation.ios.BaseIOSDriverTest;
 import org.uiautomation.ios.SampleApps;
 
+@Test(singleThreaded = true)
 public class WebDriverSelectorMapping extends BaseIOSDriverTest {
 
   @BeforeClass

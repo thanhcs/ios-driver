@@ -31,6 +31,7 @@ import org.uiautomation.ios.UIAModels.predicate.TypeCriteria;
 
 import java.util.List;
 
+@Test(singleThreaded = true)
 public class WebDriverKeyboardTest extends BaseIOSDriverTest {
 
   @BeforeClass

@@ -27,7 +27,7 @@ import org.uiautomation.ios.UIAModels.*;
 import org.uiautomation.ios.UIAModels.predicate.*;
 import org.uiautomation.ios.utils.IOSVersion;
 
-
+@Test(singleThreaded = true)
 public class AlertTest extends BaseIOSDriverTest {
 
   private static final String alertOK = "(//UIAStaticText[@name='Simple'])[1]";

@@ -14,14 +14,14 @@
 
 package org.uiautomation.ios.application;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.uiautomation.ios.SampleApps;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LanguageDictionaryTest {
 
@@ -50,7 +50,7 @@ public class LanguageDictionaryTest {
   public void reflectionOnProjectToFindLanguageFiles() {
     File app = new File(SampleApps.getIntlMountainsFile());
     List<File> languageFiles = LanguageDictionary.getL10NFiles(app);
-    Assert.assertEquals(languageFiles.size(), 4);
+    Assert.assertEquals(languageFiles.size(), 6);
   }
 
   @Test
